@@ -1,0 +1,103 @@
+.enterprise-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gray-200);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.enterprise-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.enterprise-card.hoverable:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-2xl);
+  border-color: var(--primary-color);
+}
+
+.enterprise-card.hoverable:hover::before {
+  opacity: 1;
+}
+
+.enterprise-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.enterprise-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-md);
+}
+
+.enterprise-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0 0 0.25rem 0;
+  line-height: 1.3;
+}
+
+.enterprise-card-subtitle {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.enterprise-card-content {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+/* Gradient Variants */
+.enterprise-card.gradient-primary::before {
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-light) 100%);
+  opacity: 1;
+}
+
+.enterprise-card.gradient-success::before {
+  background: linear-gradient(90deg, var(--success-color) 0%, var(--accent-color) 100%);
+  opacity: 1;
+}
+
+.enterprise-card.gradient-warning::before {
+  background: linear-gradient(90deg, var(--warning-color) 0%, var(--warning-dark) 100%);
+  opacity: 1;
+}
+
+.enterprise-card.gradient-info::before {
+  background: linear-gradient(90deg, var(--info-color) 0%, var(--info-dark) 100%);
+  opacity: 1;
+}
+
+/* Clickable Card */
+.enterprise-card[onclick] {
+  cursor: pointer;
+}
+
+
